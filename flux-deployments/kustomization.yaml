@@ -5,3 +5,4 @@ metadata:
 resources:
   - gitrepository.yaml
   - helmrelease.yaml
+  - namespace.yaml
