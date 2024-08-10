@@ -1,11 +1,31 @@
+---
 apiVersion: source.toolkit.fluxcd.io/v1
-kind: GitRepository
+kind: HelmRepository
 metadata:
   name: podinfo
-  namespace: flux-system
+  namespace: default
+spec:
+  interval: 5m0s
+  url: https://stefanprodan.github.io/podinfo
+
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: podinfo
+  namespace: default
 spec:
   interval: 1m
-  ref:
-    branch: master
-  url: https://github.com/stefanprodan/podinfo
-  
+  timeout: 2m
+  chart:
+    spec:
+      chart: podinfo
+      version: '6.5.*'
+      sourceRef:
+        kind: HelmRepository
+        name: podinfo
+      interval: 5m
+  releaseName: podinfo-franck
+  targetNamespace: podinfo
+  values:
+    replicaCount: 3
