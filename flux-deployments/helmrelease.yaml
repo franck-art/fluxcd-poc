@@ -18,5 +18,5 @@ spec:
   releaseName: podinfo-franck
   targetNamespace: podinfo
   values:
-    replicaCount: 3
+    replicaCount: 5
   
