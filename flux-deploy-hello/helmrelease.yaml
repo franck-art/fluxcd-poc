@@ -25,3 +25,4 @@ spec:
     kind: HelmChart
     name: hello-helmchart
     namespace: default
+
