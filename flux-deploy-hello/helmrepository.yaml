@@ -1,10 +1,13 @@
+
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
+kind: GitRepository
 metadata:
   name: hello
   namespace: default
 spec:
   interval: 5m0s
   url: https://github.com/franck-art/ornikar-test
-  timeout: 3m0s
+  ref:
+    branch: master
+    

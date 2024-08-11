@@ -12,7 +12,7 @@ spec:
       chart: ./cloud-interview/apps/charts/hello
       version: '0.1.1'
       sourceRef:
-        kind: HelmRepository
+        kind: GitRepository
         name: hello
       interval: 5m
   releaseName: hello-franck
